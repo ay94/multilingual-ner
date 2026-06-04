@@ -12,6 +12,8 @@ Multilingual Named Entity Recognition toolkit — covering model benchmarking, l
 
 ## Evaluation workflow
 
+Full methodology: [WORKFLOW.md](WORKFLOW.md)
+
 Three-stage process:
 
 1. **Model identification** — find candidate models via HuggingFace, check licensing and annotation scheme (CoNLL BIO format: PER/LOC/ORG/MISC)
