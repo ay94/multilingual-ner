@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "multilingual-ner"
+version = "0.1.0"
+description = "Multilingual NER toolkit: benchmarking, extraction and qualitative validation across 26 languages."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+dependencies = [
+    "transformers>=4.30",
+    "torch>=2.0",
+    "datasets>=2.0",
+    "seqeval",
+    "scikit-learn>=1.2",
+    "pandas>=1.5",
+    "tqdm",
+    "dash>=2.0",
+]
