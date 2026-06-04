@@ -1,10 +1,20 @@
 # Arabic (`ar`)
 
-## Dataset
-AQMAR Arabic NER Corpus (Wikipedia articles across 15 domains)
+## Datasets
+AQMAR (74k tokens, 28 Wikipedia articles — requires label mapping)
 
+## Recommended models
+hatmimoha/arabic-ner (378k tokens, 14k sentences); CAMeL (ANERcorp-based)
+
+## Annotation scheme
+CoNLL with custom tags — PER, LOC, ORG, MISC variations
+
+## Notes
+Label mapping required between dataset and model annotation schemes.
 ## Evaluation
-Models evaluated using seqeval (entity-level) and sklearn (token-level) metrics across PER, LOC, ORG, MISC entity types.
 
-## Status
-> Coming soon — benchmark results and model recommendations will be added here.
+Models are evaluated using:
+- **seqeval** — entity-level precision, recall, F1
+- **sklearn** — token-level metrics
+
+See `evaluation.py` for the benchmarking pipeline.

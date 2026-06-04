@@ -1,10 +1,18 @@
 # French (`fr`)
 
-## Dataset
-French Press NER (enp_FR)
+## Datasets
+Wikiann (IOB2); EuropeanaNewspapers (digitised press NER)
+
+## Recommended models
+cmarkea/distilcamembert-base-ner (WikiNER); xlm-roberta-large-finetuned-conll03-english
+
+## Annotation scheme
+IOB2 — PER, LOC, ORG
 
 ## Evaluation
-Models evaluated using seqeval (entity-level) and sklearn (token-level) metrics across PER, LOC, ORG, MISC entity types.
 
-## Status
-> Coming soon — benchmark results and model recommendations will be added here.
+Models are evaluated using:
+- **seqeval** — entity-level precision, recall, F1
+- **sklearn** — token-level metrics
+
+See `evaluation.py` for the benchmarking pipeline.

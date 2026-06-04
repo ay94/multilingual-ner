@@ -1,10 +1,18 @@
 # English (`en`)
 
-## Dataset
-WNUT 17, WikiGold
+## Datasets
+Wikigold (manually annotated Wikipedia); WNUT 17 (Twitter, Stack Overflow, YouTube, Reddit — requires label mapping)
+
+## Recommended models
+dslim/bert-base-NER; xlm-roberta-large-finetuned-conll03-english
+
+## Annotation scheme
+CoNLL-2003 — PER, LOC, ORG, MISC
 
 ## Evaluation
-Models evaluated using seqeval (entity-level) and sklearn (token-level) metrics across PER, LOC, ORG, MISC entity types.
 
-## Status
-> Coming soon — benchmark results and model recommendations will be added here.
+Models are evaluated using:
+- **seqeval** — entity-level precision, recall, F1
+- **sklearn** — token-level metrics
+
+See `evaluation.py` for the benchmarking pipeline.
