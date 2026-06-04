@@ -18,3 +18,6 @@ Models are evaluated using:
 - **sklearn** — token-level metrics
 
 See `evaluation.py` for the benchmarking pipeline.
+
+## Benchmarks
+See [`benchmarks/ar/`](../benchmarks/ar/) — 1 model evaluation notebook(s).

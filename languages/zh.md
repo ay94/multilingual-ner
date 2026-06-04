@@ -16,3 +16,6 @@ Models are evaluated using:
 - **sklearn** — token-level metrics
 
 See `evaluation.py` for the benchmarking pipeline.
+
+## Benchmarks
+See [`benchmarks/zh/`](../benchmarks/zh/) — 4 model evaluation notebook(s).
