@@ -1,6 +1,6 @@
 # multilingual-ner
 
-Multilingual Named Entity Recognition toolkit — covering model benchmarking, large-scale extraction, and qualitative validation across 26 languages.
+Multilingual Named Entity Recognition toolkit — covering model benchmarking, large-scale extraction, and qualitative validation across a range of languages.
 
 ## Components
 
@@ -20,36 +20,38 @@ Three-stage process:
 
 ## Languages
 
-26 languages covered. Each has a language card in [`languages/`](languages/) with dataset information and model recommendations.
+Languages this workflow has been applied to:
 
-| Code | Language | Dataset |
-|---|---|---|
-| `ar` | Arabic | AQMAR Arabic NER Corpus |
-| `en` | English | WNUT 17, WikiGold |
-| `fr` | French | enp_FR |
-| `ru` | Russian | Russian NER test set |
-| `af` | Afrikaans | — |
-| `bg` | Bulgarian | — |
-| `bn` | Bengali | — |
-| `cs` | Czech | — |
-| `el` | Greek | — |
-| `es` | Spanish | — |
-| `fa` | Farsi | — |
-| `ha` | Hausa | — |
-| `hi` | Hindi | — |
-| `id` | Indonesian | — |
-| `ms` | Malay | — |
-| `pt` | Portuguese | — |
-| `sk` | Slovak | — |
-| `sr-hr` | Serbo-Croatian | — |
-| `sw` | Swahili | — |
-| `tr` | Turkish | — |
-| `tw` | Twi | — |
-| `ur` | Urdu | — |
-| `vi` | Vietnamese | — |
-| `xh` | Xhosa | — |
-| `zh` | Mandarin Chinese | — |
-| `zu` | Zulu | — |
+- Afrikaans
+- Arabic
+- Bengali
+- Bulgarian
+- Czech
+- Farsi
+- French
+- German
+- Greek
+- English
+- Hausa
+- Hindi
+- Indonesian
+- Japanese
+- Malay
+- Mandarin Chinese
+- Portuguese
+- Romanian
+- Russian
+- Serbo-Croatian
+- Slovak
+- Spanish
+- Swahili
+- Thai
+- Turkish
+- Twi
+- Urdu
+- Vietnamese
+- Xhosa
+- Zulu
 
 ## Installation
 
