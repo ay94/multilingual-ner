@@ -72,6 +72,8 @@ The validation app is a Dash-based tool for qualitative review of NER extraction
 5. **Submit** the annotation — saved to a JSON file in `annotation_outputs/`
 6. **View Annotation Table** — see all submitted annotations in the table at the bottom, exportable for summary analysis
 
+![Annotation in progress](assets/validation_annotation.png)
+
 **Run it:**
 
 ```bash
