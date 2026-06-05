@@ -57,22 +57,7 @@ Languages this workflow has been applied to:
 
 ## Validation app
 
-![Validation app](assets/validation_app.png)
-
-The validation app is a Dash-based tool for qualitative review of NER extraction outputs. It is used in Stage 3 of the workflow — after benchmark ranking has produced a shortlist of candidate models, the app lets analysts review model output on real project data and annotate errors.
-
-**How it works:**
-
-1. **Upload** a CSV or JSONL file containing extraction outputs (columns: `preprocessedText`, `extractions`, `message_id`)
-2. **Browse** the uploaded data in the table — all rows are shown with entity extraction strings
-3. **Select an example** by ID and click **Retrieve Example** — the sentence is displayed with colour-coded entity spans: <span style="background:darkgreen">LOC</span> <span style="background:deepskyblue">PER</span> <span style="background:darkcyan">ORG</span> <span style="background:palevioletred">MISC</span>
-4. **Annotate** using the two panels:
-   - **Mistakes** — select which predicted entities are wrong and the error type (Entity Type, Entity Boundary, Truncation, Tokenization)
-   - **Missings** — select words the model failed to tag and the missing entity type
-5. **Submit** the annotation — saved to a JSON file in `annotation_outputs/`
-6. **View Annotation Table** — see all submitted annotations in the table at the bottom, exportable for summary analysis
-
-![Annotation in progress](assets/validation_annotation.png)
+A Dash-based tool for qualitative review of NER extraction outputs. Used in Stage 3 of the workflow — after benchmark ranking, analysts review model output on real project data and annotate errors before a final model decision is made.
 
 **Run it:**
 
@@ -82,6 +67,38 @@ python -m multilingual_ner.validation
 ```
 
 A sample file for testing is at [`assets/dummy_ner_sample.csv`](assets/dummy_ner_sample.csv).
+
+---
+
+**Step 1 — Upload extraction outputs**
+
+Upload a CSV or JSONL file (columns: `preprocessedText`, `extractions`, `message_id`). The table shows all rows with truncated extraction strings.
+
+![Step 1 — upload](assets/validation_step1_upload.png)
+
+---
+
+**Step 2 — Retrieve an example**
+
+Select a row ID and click **Retrieve Example**. The sentence renders with colour-coded entity spans. The label colour map shows which colour corresponds to each type (LOC, PER, ORG, MISC).
+
+![Step 2 — retrieve](assets/validation_step2_retrieve.png)
+
+---
+
+**Step 3 — Annotate mistakes and missing entities**
+
+Two panels populate with the model's predicted entities (Mistakes) and the sentence tokens (Missings). Select which entities were wrong and which were missed, then choose the error type (Entity Type, Entity Boundary, Truncation, Tokenization).
+
+![Step 3 — annotate](assets/validation_step3_annotate.png)
+
+---
+
+**Step 4 — Submit and view annotation table**
+
+Click **Submit Example**. Click **View Annotation Table** to see all submitted annotations — example ID, mistake and missing counts, breakdowns, message ID, and text. Saved to `annotation_outputs/` as JSON.
+
+![Step 4 — submitted](assets/validation_step4_submitted.png)
 
 ---
 
