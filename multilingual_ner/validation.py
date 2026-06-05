@@ -431,4 +431,4 @@ def submit_annotation(submit, delete, view_table, example_id, data, mistakes_bre
 
 # Step 5: Run the App
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)

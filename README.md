@@ -55,6 +55,34 @@ Languages this workflow has been applied to:
 - Xhosa
 - Zulu
 
+## Validation app
+
+![Validation app](assets/validation_app.png)
+
+The validation app is a Dash-based tool for qualitative review of NER extraction outputs. It is used in Stage 3 of the workflow — after benchmark ranking has produced a shortlist of candidate models, the app lets analysts review model output on real project data and annotate errors.
+
+**How it works:**
+
+1. **Upload** a CSV or JSONL file containing extraction outputs (columns: `preprocessedText`, `extractions`, `message_id`)
+2. **Browse** the uploaded data in the table — all rows are shown with entity extraction strings
+3. **Select an example** by ID and click **Retrieve Example** — the sentence is displayed with colour-coded entity spans: <span style="background:darkgreen">LOC</span> <span style="background:deepskyblue">PER</span> <span style="background:darkcyan">ORG</span> <span style="background:palevioletred">MISC</span>
+4. **Annotate** using the two panels:
+   - **Mistakes** — select which predicted entities are wrong and the error type (Entity Type, Entity Boundary, Truncation, Tokenization)
+   - **Missings** — select words the model failed to tag and the missing entity type
+5. **Submit** the annotation — saved to a JSON file in `annotation_outputs/`
+6. **View Annotation Table** — see all submitted annotations in the table at the bottom, exportable for summary analysis
+
+**Run it:**
+
+```bash
+python -m multilingual_ner.validation
+# Opens at http://localhost:8050
+```
+
+A sample file for testing is at [`assets/dummy_ner_sample.csv`](assets/dummy_ner_sample.csv).
+
+---
+
 ## Notebooks & documentation
 
 | File | Description |
