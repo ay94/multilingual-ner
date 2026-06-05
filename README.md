@@ -55,9 +55,20 @@ Languages this workflow has been applied to:
 - Xhosa
 - Zulu
 
+## Notebooks
+
+| Notebook | Description |
+|---|---|
+| [`notebooks/template.ipynb`](notebooks/template.ipynb) | Workflow template — all three stages with placeholders, adapt for any language |
+| [`benchmarks/ar/arabic_benchmark.ipynb`](benchmarks/ar/arabic_benchmark.ipynb) | Arabic worked example — WikiANN benchmark, hatmimoha model, dummy extraction with JSON output |
+
 ## Installation
 
 ```bash
+# From GitHub
+pip install git+https://github.com/ay94/multilingual-ner.git
+
+# Local development
 pip install -e .
 ```
 
@@ -66,21 +77,31 @@ pip install -e .
 ### Benchmark evaluation
 
 ```python
-from multilingual_ner.evaluation import ReadNERData
+from multilingual_ner.evaluation import ReadNERData, ModelEvaluation
 
 reader = ReadNERData()
-sentences, labels = reader.read_ner_file("path/to/ner_data.txt")
+words, labels = reader.read_dataset("wikiann", {"O": 0, "B-PER": 1, "I-PER": 2, "B-ORG": 3, "I-ORG": 4, "B-LOC": 5, "I-LOC": 6}, lang="ar")
+
+model = ModelEvaluation("hatmimoha/arabic-ner")
+results = model.evaluate_model(words, labels)
+print(results.get_classification("Seqeval"))
 ```
 
 ### Extraction
 
 ```python
 import pandas as pd
-from multilingual_ner import NamedEntityExtractions
+from multilingual_ner.extraction import NamedEntityExtractions
 
-df = pd.DataFrame({"text": ["Ahmed visited Cairo last week.", "The UN met in Geneva."]})
-ner = NamedEntityExtractions(model_name="dslim/bert-base-NER", project_data=df)
-outputs = ner.extract_outputs()
+df = pd.DataFrame({
+    "text": ["Ahmed visited Cairo last week.", "The UN met in Geneva."],
+    "message_id": ["msg_1", "msg_2"],
+    "accountId": ["acc_1", "acc_1"],
+})
+
+extractor = NamedEntityExtractions(model_name="dslim/bert-base-NER", project_data=df)
+json_schema, output_df, _, _ = extractor.extract_outputs()
+print(output_df[["text", "PER", "LOC", "ORG"]])
 ```
 
 ### Validation app
