@@ -6,32 +6,18 @@ Model evaluation notebooks for NER across 15 languages. Each notebook evaluates 
 
 ```
 benchmarks/
-  ar/   Arabic
-  cs/   Czech
-  de/   German
-  el/   Greek
-  ha/   Hausa
-  hi/   Hindi
-  ja/   Japanese
-  ro/   Romanian
-  sk/   Slovak
-  sr-hr/ Serbo-Croatian
-  th/   Thai
-  tr/   Turkish
-  xh/   Xhosa
-  zh/   Mandarin Chinese
-  zu/   Zulu
+  ar/   Arabic — CAMeL, hatmimoha models vs WikiANN
+  de/   German — gunghio/xlm, julian/roberta, fhswf/bert models vs WikiANN + GermEval 2014
 ```
 
-## Running a benchmark
+## Pattern
 
-Each notebook follows the same pattern:
+One notebook per model. Each notebook:
 
-1. Install dependencies (`transformers`, `seqeval`, `datasets`)
-2. Load the benchmark dataset for the language
-3. Align labels to PER / LOC / ORG / MISC schema
-4. Load and run the candidate NER model
-5. Compute seqeval and sklearn metrics
-6. Compare against baseline (xlm-roberta-large-finetuned-conll03-english)
+1. Installs from `pip install git+https://github.com/ay94/multilingual-ner.git`
+2. Loads the benchmark dataset(s) for the language
+3. Checks and aligns dataset labels to standard BIO scheme (PER / LOC / ORG / MISC)
+4. Loads the model and inspects `id2label` to define model label alignment
+5. Evaluates using seqeval (entity-level F1) and sklearn (token-level F1)
 
-See `notebooks/ner_demo.ipynb` for a minimal worked example.
+See [`notebooks/template.ipynb`](../notebooks/template.ipynb) for a blank template to apply to a new language.
