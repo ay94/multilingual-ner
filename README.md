@@ -55,12 +55,14 @@ Languages this workflow has been applied to:
 - Xhosa
 - Zulu
 
-## Notebooks
+## Notebooks & documentation
 
-| Notebook | Description |
+| File | Description |
 |---|---|
-| [`notebooks/template.ipynb`](notebooks/template.ipynb) | Workflow template — all three stages with placeholders, adapt for any language |
-| [`benchmarks/ar/arabic_benchmark.ipynb`](benchmarks/ar/arabic_benchmark.ipynb) | Arabic worked example — WikiANN benchmark, hatmimoha model, dummy extraction with JSON output |
+| [`template.ipynb`](template.ipynb) | Workflow template — all three stages with placeholders, adapt for any language |
+| [`evaluation-template.md`](evaluation-template.md) | Structured template for documenting model selection, benchmark results and validation findings per language |
+| [`benchmarks/ar/`](benchmarks/ar/) | Arabic worked example — CAMeL and hatmimoha benchmarks, evaluation notes |
+| [`benchmarks/de/`](benchmarks/de/) | German benchmarks — gunghio/xlm, julian/roberta, fhswf/bert |
 
 ## Installation
 

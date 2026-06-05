@@ -20,4 +20,4 @@ One notebook per model. Each notebook:
 4. Loads the model and inspects `id2label` to define model label alignment
 5. Evaluates using seqeval (entity-level F1) and sklearn (token-level F1)
 
-See [`notebooks/template.ipynb`](../notebooks/template.ipynb) for a blank template to apply to a new language.
+See [`template.ipynb`](../template.ipynb) for a blank notebook template and [`evaluation-template.md`](../evaluation-template.md) for the structured documentation template.
