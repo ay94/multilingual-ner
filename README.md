@@ -111,6 +111,23 @@ Click **Submit Example**. Click **View Annotation Table** to see all submitted a
 | [`benchmarks/ar/`](benchmarks/ar/) | Arabic worked example — CAMeL and hatmimoha benchmarks, evaluation notes |
 | [`benchmarks/de/`](benchmarks/de/) | German benchmarks — gunghio/xlm, julian/roberta, fhswf/bert |
 
+## Tests
+
+The library has a unit test suite covering the core utility functions — no model downloads required to run them.
+
+```bash
+pip install pytest
+pytest tests/ -v
+```
+
+**Coverage:**
+- `ReadNERData` — file reading, sentence segmentation, token and label extraction
+- `check_labels` — label set extraction across multi-sentence datasets
+- `align_dataset` — label alignment for non-standard annotation schemes (including GermEval-style fine-grained tags)
+- `NamedEntityExtractions` — post-processing (subword merging, entity grouping) and JSON schema generation, tested with mocked model output
+
+23 tests, all passing.
+
 ## Installation
 
 ```bash
